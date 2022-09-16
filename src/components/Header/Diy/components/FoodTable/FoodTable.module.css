@@ -1,0 +1,19 @@
+.Content {
+    /* width: 500px; */
+    /* height: 800rem; */
+    background-color: #bfc;
+    position: absolute;
+    left: 0;
+    right:0;
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+    /* height: 90%; */
+    table-layout: fixed;
+}
+
+
+.Content td, th{
+    border: 1px solid #000;
+    text-align: center;
+}

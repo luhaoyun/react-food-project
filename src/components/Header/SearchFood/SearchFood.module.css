@@ -1,0 +1,24 @@
+.InputOuter {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.SearchInput {
+    width: 650rem;
+    height: 70rem;
+    border: none;
+    border-radius: 16px;
+    background-color: #f2f2f2;
+    padding-left: 60rem;
+    outline: none;
+    font-size: 32rem;
+}
+
+.SearchIcon {
+    font-size: 40rem;
+    position: absolute;
+    left: 10rem;
+    color: #aaa;
+
+}

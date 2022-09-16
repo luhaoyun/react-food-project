@@ -1,0 +1,18 @@
+.FilterMeals {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-around;
+    left: 0;
+    right: 0;
+    height: 120rem;
+    background-color: #fff;
+    z-index: 999;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+.Diy {
+    color: rgb(27, 27, 27, 0.5);
+    font-size: 36rem;
+}
