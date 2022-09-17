@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hans",
+  "info": {
+    "singularName": "han",
+    "pluralName": "hans",
+    "displayName": "Han",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "text"
+    },
+    "price": {
+      "type": "integer"
+    },
+    "img": {
+      "type": "string"
+    }
+  }
+}
