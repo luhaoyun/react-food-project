@@ -10,7 +10,7 @@
 }
 
 .ImgBox{
-    width: 280rem;
+    max-width: 280rem;
 }
 
 

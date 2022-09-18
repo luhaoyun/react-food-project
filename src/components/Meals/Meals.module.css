@@ -1,7 +1,12 @@
-.Meals{
+.Meals {
     position: absolute;
     top: 120rem;
     bottom: 0;
     overflow: auto;
     padding-bottom: 120rem;
+}
+
+.Loading {
+    margin: 50px;
+    text-align: center
 }

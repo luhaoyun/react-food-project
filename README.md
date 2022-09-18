@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# React-Food-Project
+主要技术栈
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![react-version](https://img.shields.io/badge/react-v18.1.0-blue)
+![react-router-dom-version](https://img.shields.io/badge/react--router--dom-v6.4.0-blue)
+![express-version](https://img.shields.io/badge/express-4.18.1-blue)
 
-## Available Scripts
+## 项目结构
+```
+|-- React-Food-Project
+    |-- server.js
+    |-- database
+    |-- src
+        |-- App.js
+        |-- components
+        |   |-- Cart
+        |   |   |-- CartDetails
+        |   |   |-- Checkout
+        |   |-- Header
+        |   |   |-- Diy
+        |   |   |   |-- components
+        |   |   |   |-- pages
+        |   |   |   |-- store
+        |   |   |-- SearchFood
+        |   |-- Meals
+        |   |   |-- Meal
+        |   |-- UI
+        |-- hooks
+        |-- store
+```
+主要模块分为两部分：
+* 第一部分是前端页面的展示，主要为顶部搜索栏，中间食品详情栏，以及底部购物车
+* 第二部分是顶部DIY组件中的路由组件，这部分的数据保存在strapi数据管理系统中，通过fetch网络请求，以及react-toolkit发送网络连接进行数据的增删改查
 
-In the project directory, you can run:
+最后通过express框架简单部署在本地服务器[5005] 端口
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 项目运行
+首先在项目根目录下运行
+```bash
+npm build
+```
+产生build文件夹，因为项目的静态页面在express部署的根目录为build文件夹
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+之后在根目录下运行启动本地服务器进入5005端口
+```bash
+node server.js 
+```
+出现 LISTENING ON PORT 5005!后，顺利连接5005端口
 
-### `npm test`
+同时还得进入database文件夹下，运行strapi后台服务器
+```bash
+npm start
+```
+这样就会展示出页面中食物数据和图片
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img alt="sponsors" src="./public/img/main.png" width="200">
 
-### `npm run build`
+登录密码
+用户名:test
+密码：test1234
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[5005]:http://localhost:5005

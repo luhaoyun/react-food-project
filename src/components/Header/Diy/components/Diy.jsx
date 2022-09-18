@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { Result, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import FoodTable from "./FoodTable/FoodTable";
 import DiyContext from "../../../../store/diy-context";
-import useFetch from "../../../../hooks/useFetch";
 
 const diyRoot = document.getElementById('diy-root');
-
+const antIcon = (
+    <LoadingOutlined style={{ fontSize: 24, }} spin />
+);
 
 const Diy = (props) => {
     const [hanData, setHanData] = useState([
@@ -33,38 +34,7 @@ const Diy = (props) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // http://localhost:1337/api/hans
-    // 获取数据fetch prmoise版
-    // useEffect(() => {
-    //     // 数据开始加载
-    //     setLoading(true);
-    //     fetch('http://localhost:1337/api/hans')
-    //         .then(response => {
-    //             console.log(response)
-    //             // 判断是否返回了数据, 可以根据返回response对象中的ok或者status或者statusText属性来判断
-    //             if (response.ok === false) {
-
-    //                 throw new Error('发生了错误')
-    //             }
-
-    //             return response.json()
-    //         })
-
-    //         .then(data => {
-    //             setHanData(data.data);
-    //             setLoading(false)
-    //         })
-    //         .catch((e) => {
-    //             setLoading(false)
-    //             console.log(e)
-    //             setError(e)
-    //         })
-
-    // }, [])
-
-
-    // 这里的fetchData只是单纯的读数据，并且会作为value属性传给context，因此在DIY组件中可全局调用
-    // 在hook中定义的自定义钩子将fetchData进行了增删改查的扩展，可以在各个组件中重复使用，但注意，各组件之间的state依旧是相互独立的！！
+    // 数据源:http://localhost:1337/api/hans
     // 获取数据async await版
     const fetchData = useCallback(async () => {
         try {
@@ -101,27 +71,23 @@ const Diy = (props) => {
 
 
     return (
-        // return ReactDOM.createPortal(
-
-        // <div className={classes.Diy}>
-        //     <div className={classes.Close}>
-        //         <FontAwesomeIcon
-        //             onClick={() => props.onHide()}
-        //             icon={faXmark} />
-        //     </div>
-        //     <div className={classes.Table}>
-
         <DiyContext.Provider value={{ fetchData }}>
-            {loading && <p>数据正在加载中......</p>}
+            {loading && <Spin
+                style={{ margin: '50px', textAlign: 'center' }}
+                indicator={antIcon}
+                children={<p style={{ margin: '50px', textAlign: 'center' }}>'数据加载中.....'</p>}
+            />
+            }
 
             {(!loading && !error) &&
                 <FoodTable hanData={hanData} />}
 
-            {error && <p>{error.message} </p>}
+            {error && <Result
+                style={{ margin: '50px', textAlign: 'center' }}
+                status="404"
+                title="404"
+                subTitle={error.message} />}
         </DiyContext.Provider>
-        // </div>
-        // </div>
-        // ,diyRoot);
     )
 
 

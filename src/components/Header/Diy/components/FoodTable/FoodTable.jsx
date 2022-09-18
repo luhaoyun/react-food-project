@@ -18,7 +18,7 @@ const FoodTable = (props) => {
 
     return (
         <>
-            <button onClick={loadDataHandler}>提取数据</button>
+            {/* <button onClick={loadDataHandler}>提取数据</button> */}
             <table className={classes.Content}>
                 <caption>汉堡列表</caption>
                 <thead>
